@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { makeAppConfig } from 'react-aws-cognito-lambda-dynamodb-base-prototype-app';
 
-import { BaseApp, makeAppConfig } from 'react-aws-cognito-lambda-dynamodb-base-prototype-app';
-
-const e = React.createElement;
+import BaseApp from './BaseApp';
 
 const myAppMessages = {
   LOGIN_SUCCESSFUL: 'User logged-in successfully',
@@ -20,23 +19,23 @@ const myAppMessages = {
 };
 
 const myEnv = {
-  appHost: process.env.APP_HOST,
-  appBasePath: process.env.APP_BASE_PATH,
-  appLogoUrl: process.env.APP_LOGO_URL,
-  appRegion: process.env.AWS_REGION,
-  appUserPoolId: process.env.USER_POOL_ID,
-  appUserPoolDomain: process.env.USER_POOL_DOMAIN,
-  appClientId: process.env.USER_POOL_APP_CLIENT_ID,
-  appIdentityPoolId: process.env.IDENTITY_POOL_ID
+  appHost: process.env.REACT_APP_HOST,
+  appBasePath: process.env.REACT_APP_BASE_PATH,
+  appLogoUrl: process.env.REACT_APP_LOGO_URL,
+  appRegion: process.env.REACT_APP_AWS_REGION,
+  appUserPoolId: process.env.REACT_APP_USER_POOL_ID,
+  appUserPoolDomain: process.env.REACT_APP_USER_POOL_DOMAIN,
+  appClientId: process.env.REACT_APP_USER_POOL_APP_CLIENT_ID,
+  appIdentityPoolId: process.env.REACT_APP_IDENTITY_POOL_ID
 };
 
 const appConfig = makeAppConfig({
   ...myEnv,
-  appRefreshTokenStorageKey: 'my-sample-app-wallet-refresh-token',
+  appRefreshTokenStorageKey: 'my-sample-app-refresh-token',
   appMessages: myAppMessages
 });
 
-const MainContent = () => e('div', null, 'Main content text.');
+const MainContent = () => <div>Main content text.</div>;
 
 const appRoutes = [
   {
@@ -50,10 +49,8 @@ const appRoutes = [
 ];
 
 const App = () => (
-  e(BaseApp, { appRoutes, appConfig })
+  <BaseApp appRoutes={appRoutes} appConfig={appConfig} />
 );
 
-ReactDOM.render(
-  e(App, null, null),
-  document.getElementById('app_container')
-);
+const root = createRoot(document.getElementById('app_container'));
+root.render(<App />);

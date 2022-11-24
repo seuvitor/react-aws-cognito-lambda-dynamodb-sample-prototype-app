@@ -12,6 +12,7 @@ module.exports = {
     'linebreak-style': 0,
     'comma-dangle': ['error', 'never'],
     'no-console': ['error', { allow: ['warn', 'error'] }],
-    'no-param-reassign': ['error', { props: false }]
+    'no-param-reassign': ['error', { props: false }],
+    'react/prop-types': 'warn'
   }
 };
