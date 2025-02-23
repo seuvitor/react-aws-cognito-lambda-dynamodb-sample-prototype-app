@@ -7,6 +7,7 @@ import {
   Drawer,
   Icon,
   ListItem,
+  ListItemButton,
   ListItemText,
   Toolbar
 } from '@mui/material';
@@ -28,16 +29,13 @@ const AppDrawer = ({ routes, drawerOpen, setDrawerOpen }) => {
     </Toolbar>
     <Divider />
     {menuRoutes.map((route) => (
-      <ListItem
-        key={`${route.name}-route-drawer-item`}
-        button={true}
-        component={NavLink}
-        activeClassName="Mui-selected"
+      <ListItem disablePadding key={`${route.name}-route-drawer-item`}>
+        <ListItemButton component={NavLink}
         to={route.path}
         onClick={handleClose}
-        {...route.options}
-      >
-        <ListItemText primary={route.label} />
+        {...route.options}>
+          <ListItemText primary={route.label} />
+        </ListItemButton>
       </ListItem>
     ))
     }

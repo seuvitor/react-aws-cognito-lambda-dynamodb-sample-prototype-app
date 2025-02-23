@@ -19,17 +19,17 @@ const myAppMessages = {
 };
 
 const myEnv = {
-  appHost: process.env.REACT_APP_HOST,
-  appBasePath: process.env.REACT_APP_BASE_PATH,
-  appLogoUrl: process.env.REACT_APP_LOGO_URL,
-  appRegion: process.env.REACT_APP_AWS_REGION,
-  appUserPoolId: process.env.REACT_APP_USER_POOL_ID,
-  appUserPoolDomain: process.env.REACT_APP_USER_POOL_DOMAIN,
-  appClientId: process.env.REACT_APP_USER_POOL_APP_CLIENT_ID,
-  appIdentityPoolId: process.env.REACT_APP_IDENTITY_POOL_ID
+  appHost: process.env.REACT_APP_HOST || '',
+  appBasePath: process.env.REACT_APP_BASE_PATH || '',
+  appLogoUrl: process.env.REACT_APP_LOGO_URL || '',
+  appRegion: process.env.REACT_APP_AWS_REGION || '',
+  appUserPoolId: process.env.REACT_APP_USER_POOL_ID || '',
+  appUserPoolDomain: process.env.REACT_APP_USER_POOL_DOMAIN || '',
+  appClientId: process.env.REACT_APP_USER_POOL_APP_CLIENT_ID || '',
+  appIdentityPoolId: process.env.REACT_APP_IDENTITY_POOL_ID || ''
 };
 
-const appConfig = makeAppConfig({
+const myAppConfig = makeAppConfig({
   ...myEnv,
   appRefreshTokenStorageKey: 'my-sample-app-refresh-token',
   appMessages: myAppMessages
@@ -49,7 +49,7 @@ const appRoutes = [
 ];
 
 const App = () => (
-  <BaseApp appRoutes={appRoutes} appConfig={appConfig} />
+  <BaseApp appRoutes={appRoutes} appConfig={myAppConfig} />
 );
 
 const root = createRoot(document.getElementById('app_container'));

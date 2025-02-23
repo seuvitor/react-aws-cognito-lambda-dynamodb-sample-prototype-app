@@ -2,18 +2,20 @@
   "name": "my-sample-app",
   "version": "0.0.1",
   "description": "Sample serverless React prototype app making use of AWS Cognito, Lambda and DynamoDB",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/seuvitor/react-aws-cognito-lambda-dynamodb-sample-prototype-app.git"
   },
   "scripts": {
     "lint": "eslint --fix --ignore-pattern '/dist/**' .",
-    "start": "NODE_ENV=development node custom-esbuild.js --serve",
-    "build": "NODE_ENV=production node custom-esbuild.js"
+    "start": "NODE_ENV=development node custom-esbuild.cjs --serve",
+    "build": "NODE_ENV=production node custom-esbuild.cjs"
   },
   "author": "Vitor Dantas",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^22.13.5",
     "dotenv": "^16.0.3",
     "esbuild": "^0.15.15",
     "eslint": "^7.32.0",
@@ -27,7 +29,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.15",
     "react": "^18.2.0",
-    "react-aws-cognito-lambda-dynamodb-base-prototype-app": "^1.0.0",
+    "react-aws-cognito-lambda-dynamodb-base-prototype-app": "^1.0.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3"
   }
