@@ -1,5 +1,6 @@
 import { makeAppConfig } from "react-aws-cognito-lambda-dynamodb-base-prototype-app";
 import { createRoot } from "react-dom/client";
+import "@mui/material-pigment-css/styles.css";
 import BaseApp from "./BaseApp";
 
 const myAppMessages = {
@@ -45,7 +46,6 @@ const appRoutes = [
 		path: "/",
 		hideFromMenu: false,
 		component: MainContent,
-		options: { exact: true },
 	},
 ];
 

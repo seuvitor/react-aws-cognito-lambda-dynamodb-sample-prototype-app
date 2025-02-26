@@ -2,5 +2,4 @@ node_modules
 .devcontainer
 .env.development
 .env.production
-dist/my-sample-app.min.js
-dist/my-sample-app.min.js.map
+dist/

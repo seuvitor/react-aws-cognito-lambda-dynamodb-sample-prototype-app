@@ -26,8 +26,7 @@ const AppDrawer = ({ routes, drawerOpen, setDrawerOpen }: AppDrawerProps) => {
 	return (
 		<Drawer open={drawerOpen} onClose={handleClose}>
 			<Toolbar onClick={handleClose} style={{ padding: "inherit" }}>
-				<ListItem
-					button={true}
+				<ListItemButton
 					style={{ justifyContent: "space-between", height: "100%" }}
 				>
 					<Box style={{ flex: "auto", textAlign: "center" }}>
@@ -39,7 +38,7 @@ const AppDrawer = ({ routes, drawerOpen, setDrawerOpen }: AppDrawerProps) => {
 						/>
 					</Box>
 					<Icon>chevron_left</Icon>
-				</ListItem>
+				</ListItemButton>
 			</Toolbar>
 			<Divider />
 			{menuRoutes.map((route) => (
@@ -48,7 +47,6 @@ const AppDrawer = ({ routes, drawerOpen, setDrawerOpen }: AppDrawerProps) => {
 						component={NavLink}
 						to={route.path}
 						onClick={handleClose}
-						{...route.options}
 					>
 						<ListItemText primary={route.label} />
 					</ListItemButton>
